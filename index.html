@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>うさとあそ部｜うさしほの働き方の裏側</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="ds/styles.css">
+<script src="ds/bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Raleway:wght@100&family=Zen+Kaku+Gothic+New:wght@400&display=swap">
+<script src="./image-slot.js"></script>
+<style>
+@font-face { font-family: 'Kanata'; src: url('uploads/kanata.woff2') format('woff2'); font-display: swap; }
+:root { --font-body: 'Zen Maru Gothic', sans-serif; --color-bg: #FAF6F2; --color-surface: #F3ECE6; --color-text: #574B47; --color-divider: color-mix(in srgb, #574B47 18%, transparent);
+  --color-accent: #C9A86A; --color-accent-100: #F7EFE1; --color-accent-200: #EEDFC3; --color-accent-300: #E2CB9F; --color-accent-400: #D5B985; --color-accent-500: #C9A86A; --color-accent-600: #B08F52; --color-accent-700: #574B47; --color-accent-800: #463C39; --color-accent-900: #342D2B;
+  --color-accent-2: #C9A86A; --color-accent-2-100: #F7EFE1; --color-accent-2-200: #EEDFC3; --color-accent-2-300: #E2CB9F; --color-accent-2-400: #D5B985; --color-accent-2-500: #C9A86A; --color-accent-2-600: #B08F52; --color-accent-2-700: #574B47; --color-accent-2-800: #463C39; --color-accent-2-900: #342D2B; }
+h1, h2, h3 { color: #574B47; }
+.tag-accent { background: #E8C4C0; color: #574B47; border-color: #E8C4C0; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Zen Maru Gothic', sans-serif; text-wrap: pretty; line-break: strict; }
+a { color: var(--color-accent-700); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--color-accent-900); }
+.btn { border-radius: 999px; font-family: 'Zen Maru Gothic', sans-serif; }
+.plate { filter: sepia(0.022) saturate(0.982) contrast(1.005); border: 0; outline: 0; border-radius: 24px; overflow: hidden; }
+.card { border-radius: 24px; }
+.tag { border-radius: 999px; }
+.tag-outline { color: #574B47; }
+summary::-webkit-details-marker { display: none; }
+.nav a { white-space: nowrap; }
+.nav a:not(.btn) { font-family: 'Kanata', var(--font-heading), serif; }
+@media (max-width: 1080px) { .nav a:not(.nav-brand):not(.btn) { display: none; } }
+details[open] .faq-mark { transform: rotate(45deg); }
+</style>
+</helmet>
+
+<nav class="nav" style="position: sticky; top: 0; z-index: 20; background: var(--color-bg); padding-inline: clamp(20px, 5vw, 72px); flex-wrap: wrap; row-gap: 8px;">
+  <a href="#top" class="nav-brand" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; text-decoration: none; color: var(--color-text); display: flex; align-items: center; gap: 10px;"><img src="assets/logo-sm.png" alt="" style="width: 44px; height: 44px; object-fit: contain;"><img src="assets/wordmark.png" alt="うさとあそ部" style="height: 22px; width: auto;"></a>
+  <a href="#about">うさとあそ部について</a>
+  <a href="#profile">うさしほについて</a>
+  <a href="#features">できること</a>
+  <a href="#schedule">10月のスケジュール</a>
+  <a href="#price">料金</a>
+  <a href="#faq">FAQ</a>
+  <a href="#join" class="btn btn-primary" style="text-decoration: none; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">参加する</a>
+</nav>
+
+<main id="top" style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px);">
+
+  <!-- HERO -->
+  <section data-screen-label="Hero" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(40px, 6vw, 96px); align-items: center; padding: clamp(56px, 9vw, 120px) 0 clamp(64px, 9vw, 112px);">
+    <div>
+      <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 28px;">Online Community ｜ USATOASOBU</span>
+      <h1 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 400; font-size: clamp(42px, 6vw, 76px); line-height: 1.3; letter-spacing: 0.02em; margin: 0;">うさしほの<br>働き方の裏側</h1>
+      <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: clamp(20px, 2vw, 24px); line-height: 1.7; margin: 28px 0 0; color: var(--color-accent-700);">たのしく、おもしろく働こ〜！🐰</p>
+      <p style="font-size: 16px; line-height: 2; margin: 16px 0 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">うさしほの働き方の裏側・AI・ツール活用まで、まるっとシェア。</p>
+      <ul style="list-style: none; padding: 0; margin: 36px 0 0; border-top: 1px solid var(--color-divider);">
+        <li style="display: flex; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--color-divider); font-size: 16px;"><span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 20px; color: var(--color-accent); font-feature-settings: 'tnum' 1; min-width: 28px;">01</span>月1うさしほの裏側シェア会</li>
+        <li style="display: flex; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--color-divider); font-size: 16px;"><span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 20px; color: var(--color-accent); font-feature-settings: 'tnum' 1; min-width: 28px;">02</span>月1回のグループコンサル</li>
+        <li style="display: flex; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--color-divider); font-size: 16px;"><span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 20px; color: var(--color-accent); font-feature-settings: 'tnum' 1; min-width: 28px;">03</span>アーカイブ見放題（30時間〜）</li>
+      </ul>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 36px;">
+        <a href="#join" class="btn btn-primary" style="text-decoration: none; padding: 14px 28px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に参加する</a>
+        <span class="tag tag-accent" style="font-family: 'Kanata', var(--font-heading), serif; font-size: 14px; padding: 8px 16px;">募集期間　10/15（木）〜10/27（火）</span>
+      </div>
+    </div>
+    <figure class="plate" style="margin: 0; aspect-ratio: 2 / 3; width: 100%; max-width: 480px; justify-self: end;">
+      <image-slot id="hero-main" shape="rect" src="uploads/00010978.jpeg" placeholder="ヒーロー画像（うさしほ）"></image-slot>
+    </figure>
+  </section>
+
+  <div role="separator" style="display: flex; align-items: center; gap: 24px;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><img src="assets/wordmark.png" alt="" style="width: 56px; height: auto; opacity: 0.85;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span></div>
+
+  <!-- LIFESTYLE -->
+  <section data-screen-label="Lifestyle" style="padding: clamp(72px, 10vw, 128px) 0;">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">My Lifestyle</span>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">今の働き方で叶えた、<br>わたしらしい暮らし</h2>
+    <p style="font-size: 13px; line-height: 1.9; margin: 20px 0 0; color: color-mix(in srgb, var(--color-text) 70%, transparent); max-width: 60ch;">※ これはうさしほの実際の話です。うさとあそ部に参加することでこのようになれるという変化の保証はしていません。</p>
+    <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: clamp(18px, 1.8vw, 22px); line-height: 2; margin: 40px 0 0; max-width: 36em;">大切なのは、自分はどうありたいか？<br>自分の軸を磨き、自分らしく働き、あそぶように生きる人を、自分も含め増やしていきたい。</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 16px; margin-top: 56px;">
+      <figure class="plate" style="margin: 0; aspect-ratio: 3 / 4;"><image-slot id="life-1" shape="rect" src="uploads/00014166.jpeg" placeholder="旅先でのうさしほ"></image-slot></figure>
+      <figure class="plate" style="margin: 0; aspect-ratio: 3 / 4;"><image-slot id="life-2" shape="rect" src="uploads/00014165.jpeg" placeholder="ホテルの部屋から"></image-slot></figure>
+      <figure class="plate" style="margin: 0; aspect-ratio: 3 / 4;"><image-slot id="life-3" shape="rect" src="uploads/00011584.jpeg" placeholder="海外での暮らし"></image-slot></figure>
+      <figure class="plate" style="margin: 0; aspect-ratio: 3 / 4;"><image-slot id="life-4" shape="rect" src="uploads/00013381.jpeg" placeholder="カフェでの朝食"></image-slot></figure>
+      <figure class="plate" style="margin: 0; aspect-ratio: 3 / 4;"><image-slot id="life-5" shape="rect" src="uploads/00011617.jpeg" placeholder="ベトナムの街並み"></image-slot></figure>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); column-gap: 48px; margin-top: 72px; border-top: 1px solid var(--color-divider);">
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--color-divider);">
+        <h3 style="display: inline; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0; padding: 0 4px; background: linear-gradient(transparent 58%, #E8C4C0 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone;">年間90泊以上、ホテル暮らし</h3>
+        <p style="font-size: 15px; line-height: 1.95; margin: 10px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">全国・海外を旅しながら、その土地の文化や暮らしに触れ、そこでの気づきを発信や活動の種に。</p>
+      </div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--color-divider);">
+        <h3 style="display: inline; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0; padding: 0 4px; background: linear-gradient(transparent 58%, #E8C4C0 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone;">PC1台で、どこでも仕事</h3>
+        <p style="font-size: 15px; line-height: 1.95; margin: 10px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">ホテルも海外も、好きな場所がオフィスに。</p>
+      </div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--color-divider);">
+        <h3 style="display: inline; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0; padding: 0 4px; background: linear-gradient(transparent 58%, #E8C4C0 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone;">数週間の海外滞在も</h3>
+        <p style="font-size: 15px; line-height: 1.95; margin: 10px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">旅費は仕事でまかなって、暮らすようにゆっくり旅する。</p>
+      </div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--color-divider);">
+        <h3 style="display: inline; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0; padding: 0 4px; background: linear-gradient(transparent 58%, #E8C4C0 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone;">買い付けグッズで1日50万円、週100万円以上の売上</h3>
+        <p style="font-size: 15px; line-height: 1.95; margin: 10px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">「お金がないから行けない」じゃなく、「どうしたら行ける？」から考える。旅費もペイできる旅に。</p>
+      </div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--color-divider);">
+        <h3 style="display: inline; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0; padding: 0 4px; background: linear-gradient(transparent 58%, #E8C4C0 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone;">広告費ゼロ、インスタで集客</h3>
+        <p style="font-size: 15px; line-height: 1.95; margin: 10px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">自分の世界観を大切に。</p>
+      </div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--color-divider);">
+        <h3 style="display: inline; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0; padding: 0 4px; background: linear-gradient(transparent 58%, #E8C4C0 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone;">なるべく外注せず、自分でつくる</h3>
+        <p style="font-size: 15px; line-height: 1.95; margin: 10px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">サイト、LP、投稿、動画、教材、企画をAIと一緒にブラッシュアップ。</p>
+      </div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--color-divider);">
+        <h3 style="display: inline; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0; padding: 0 4px; background: linear-gradient(transparent 58%, #E8C4C0 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone;">学びには、惜しみなく</h3>
+        <p style="font-size: 15px; line-height: 1.95; margin: 10px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">受けたい講座や学びには、時間もお金も惜しまない。</p>
+      </div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--color-divider);">
+        <h3 style="display: inline; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0; padding: 0 4px; background: linear-gradient(transparent 58%, #E8C4C0 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone;">自然豊かな田舎暮らし</h3>
+        <p style="font-size: 15px; line-height: 1.95; margin: 10px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">都会じゃなくても、自分らしく働ける。</p>
+      </div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--color-divider);">
+        <h3 style="display: inline; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0; padding: 0 4px; background: linear-gradient(transparent 58%, #E8C4C0 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone;">全国に仲間がいる</h3>
+        <p style="font-size: 15px; line-height: 1.95; margin: 10px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">オンラインコミュニティのおかげで、田舎にいてもひとりじゃない。</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 96px;">
+      <p style="font-size: 16px; line-height: 2; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">わたしが目指したのは、たくさん働くことじゃなくて</p>
+      <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 400; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.5; margin: 24px 0; color: var(--color-text);">“人生を楽しむために働く”</p>
+      <p style="font-size: 16px; line-height: 2; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">暮らし。</p>
+      <p style="font-size: 16px; line-height: 2; margin: 24px 0 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">AIは、その暮らしを叶える大切な相棒です。</p>
+      <p style="font-size: 14px; line-height: 1.9; margin: 32px auto 0; max-width: 40em; padding-top: 24px; border-top: 1px solid var(--color-divider); color: var(--color-accent-700);">ちなみに、このサイトもAIでつくりました。<br>うさとあそ部では、こんなスキルも学べます🐰</p>
+    </div>
+  </section>
+
+  <div role="separator" style="display: flex; align-items: center; gap: 24px;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><img src="assets/wordmark.png" alt="" style="width: 56px; height: auto; opacity: 0.85;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span></div>
+
+  <!-- ABOUT -->
+  <section id="about" data-screen-label="About" style="padding: clamp(72px, 10vw, 128px) 0; scroll-margin-top: 72px;">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">About</span>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">うさとあそ部とは？</h2>
+    <p style="font-size: 16px; line-height: 2; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">自分らしい働き方をつくる人のためのコミュニティ</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(40px, 6vw, 88px); align-items: start; margin-top: 56px;">
+      <figure class="plate" style="margin: 0; aspect-ratio: 4 / 3;">
+        <image-slot id="about-env" shape="rect" src="assets/about-env.png" placeholder="うさとあそ部の学びの環境"></image-slot>
+      </figure>
+      <div style="display: flex; flex-direction: column; gap: 20px; font-size: 16px; line-height: 2; text-align: justify; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+        <p style="margin: 0;">私が大切にしているのは「自由」。<br>時間、場所、働き方——自分で選べるからこそ、旅をしたり、田舎でのんびり暮らしたり、自分らしい毎日を過ごすことができています。</p>
+        <p style="margin: 0;">AIやデジタルは、その自由な時間を生み出してくれる道具。でも大事なのは、ツールそのものじゃなく、「どう働きたいか」「どう生きたいか」を自分で考え、選んでいくこと。</p>
+        <p style="margin: 0; padding: 20px 0; border-top: 1px solid var(--color-accent); border-bottom: 1px solid var(--color-accent); font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.9; color: var(--color-text); text-align: left;">うさとあそ部は、「答えをもらう場」ではなく「自分で自分に合った選択をし、答えを見つける場」。</p>
+        <p style="margin: 0;">うさしほのリアルな働き方の裏側をシェアしながら、それぞれが自分のペースで日々に活かしたり「自分らしい働き方」を追求していくコミュニティです。</p>
+      </div>
+    </div>
+  </section>
+
+  <div role="separator" style="display: flex; align-items: center; gap: 24px;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><img src="assets/wordmark.png" alt="" style="width: 56px; height: auto; opacity: 0.85;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span></div>
+
+  <!-- THOUGHTS -->
+  <section data-screen-label="Thoughts" style="padding: clamp(72px, 10vw, 128px) 0;">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">Why now</span>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">今、AIや働き方と向き合う理由</h2>
+    <p style="font-size: 16px; line-height: 2; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">うさしほの想い</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(40px, 6vw, 88px); align-items: start; margin-top: 56px;">
+      <div style="display: flex; flex-direction: column; gap: 20px; font-size: 16px; line-height: 2; text-align: justify; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+        <p style="margin: 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 22px; line-height: 1.8; color: var(--color-text); text-align: left;">わたしが大事にしているのは、「たのしく働く」こと。</p>
+        <p style="margin: 0; font-family: 'Zen Kaku Gothic New', sans-serif;">がんばりすぎず、でも自分の人生には真剣に。好きなことを仕事にして、旅しながら、猫と暮らしながら、自由に働く毎日を選んでいます。</p>
+        <p style="margin: 0; font-family: 'Zen Kaku Gothic New', sans-serif;">AIやデジタルは、その「自由な時間」を生み出してくれる道具。でも道具に振り回されるんじゃなくて、自分がどう生きたいかが先。</p>
+        <p style="margin: 0; font-family: 'Zen Kaku Gothic New', sans-serif;">「こうしたい」がまだぼんやりでも大丈夫。うさとあそ部は、わたしのリアルな裏側を見たり、仲間の話を聞いたりしながら、「あ、わたしはこうしたいのかも」に気づいていける場所です。</p>
+        <p style="margin: 0; font-family: 'Zen Kaku Gothic New', sans-serif;">うまくいったことも、失敗も、ぜんぶシェアしてます。一緒にたのしく働きましょ〜！</p>
+        <p style="margin: 8px 0 0; font-size: 14px; color: color-mix(in srgb, var(--color-text) 70%, transparent);">うさしほ ／ うさとあそ部 主宰</p>
+      </div>
+      <figure class="plate" style="margin: 0; aspect-ratio: 4 / 5; max-width: 460px; width: 100%; justify-self: end;">
+        <image-slot id="thoughts-photo" shape="rect" placeholder="うさしほ - 自由な働き方"></image-slot>
+      </figure>
+    </div>
+  </section>
+
+  <div role="separator" style="display: flex; align-items: center; gap: 24px;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><img src="assets/wordmark.png" alt="" style="width: 56px; height: auto; opacity: 0.85;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span></div>
+
+  <!-- PROFILE -->
+  <section id="profile" data-screen-label="Profile" style="padding: clamp(72px, 10vw, 128px) 0; scroll-margin-top: 72px;">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">Profile</span>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">主宰｜うさしほ</h2>
+    <p style="font-size: 16px; line-height: 2; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">旅しながら自由に働く</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(40px, 6vw, 88px); align-items: start; margin-top: 56px;">
+      <div style="display: flex; flex-direction: column; gap: 28px;">
+        <figure class="plate" style="margin: 0; aspect-ratio: 1 / 1; max-width: 360px; width: 100%;">
+          <image-slot id="profile-photo" shape="rect" placeholder="うさしほ プロフィール写真"></image-slot>
+        </figure>
+        <div>
+          <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 28px; line-height: 1.4; margin: 0;">うさしほ</p>
+          <p style="font-size: 14px; line-height: 1.9; margin: 8px 0 0; color: color-mix(in srgb, var(--color-text) 75%, transparent);">合同会社Kitone 代表<br>千早赤阪村（大阪唯一の村）在住</p>
+        </div>
+        <p style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 15px; line-height: 2; margin: 0; color: color-mix(in srgb, var(--color-text) 82%, transparent);">起こることは全てベストタイミング。<br>やりたいこと、楽しいことして生きていこ〜！<br>ずぼらだけど、真剣に自分の人生を生きたい。<br>そんな仲間と一緒に、深めていきたいなぁ🐰</p>
+        <p style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; line-height: 1.9; margin: 0; color: var(--color-accent-700);">ゆるっと距離が近く、分かりやすく、やさしいZOOM講座だとご好評いただいてます☺️</p>
+        <div>
+          <p style="font-size: 13px; letter-spacing: 0.12em; margin: 0 0 12px; color: var(--color-accent-700);">好き・興味のあること</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tag tag-outline">ねこ</span><span class="tag tag-outline">旅</span><span class="tag tag-outline">自然のある暮らし</span><span class="tag tag-outline">ヨガ</span><span class="tag tag-outline">野菜</span><span class="tag tag-outline">発酵・麹</span><span class="tag tag-outline">ハンドメイド</span><span class="tag tag-outline">鳥のさえずり</span>
+          </div>
+        </div>
+        <div>
+          <p style="font-size: 13px; letter-spacing: 0.12em; margin: 0 0 12px; color: var(--color-accent-700);">資格</p>
+          <ul style="list-style: none; margin: 0; padding: 0; font-size: 14px; line-height: 1.9; border-top: 1px solid var(--color-divider);">
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--color-divider);">管理栄養士 / 調理師</li>
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--color-divider);">プロフェッショナルファスティングマイスター</li>
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--color-divider);">RYT200（Zuddha yoga）</li>
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--color-divider);">陰ヨガ / 中医養生ヨガ / 瞑想・呼吸法指導者</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 24px; line-height: 1.5; margin: 0 0 24px;">今の暮らしに至るまで</h3>
+        <ol style="list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--color-accent);">
+          <li style="position: relative; padding: 0 0 22px 28px; font-size: 15px; line-height: 1.9;"><span style="position: absolute; left: -4px; top: 11px; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--color-accent); background: var(--color-bg);"></span>村で23年間育ち、都会に憧れる → 西宮で3年暮らす</li>
+          <li style="position: relative; padding: 0 0 22px 28px; font-size: 15px; line-height: 1.9;"><span style="position: absolute; left: -4px; top: 11px; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--color-accent); background: var(--color-bg);"></span>新卒で大手ヨガスタジオで約4年半勤務（ヨガは未経験だった）</li>
+          <li style="position: relative; padding: 0 0 22px 28px; font-size: 15px; line-height: 1.9;"><span style="position: absolute; left: -4px; top: 11px; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--color-accent); background: var(--color-bg);"></span><strong style="font-weight: 500; font-feature-settings: 'tnum' 1;">2022年</strong> 脱サラ、独立 → 1年後、夫も脱消防士🧑‍🚒</li>
+          <li style="position: relative; padding: 0 0 22px 28px; font-size: 15px; line-height: 1.9;"><span style="position: absolute; left: -4px; top: 11px; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--color-accent); background: var(--color-bg);"></span>自然を求め田舎移住。地元の千早で古民家暮らし</li>
+          <li style="position: relative; padding: 0 0 22px 28px; font-size: 15px; line-height: 1.9;"><span style="position: absolute; left: -4px; top: 11px; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--color-accent); background: var(--color-bg);"></span>インスタが万垢に → <strong style="font-weight: 500;">2023年</strong> 法人化</li>
+          <li style="position: relative; padding: 0 0 22px 28px; font-size: 15px; line-height: 1.9;"><span style="position: absolute; left: -4px; top: 11px; width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--color-accent); background: var(--color-bg);"></span><strong style="font-weight: 500;">2025年</strong> 佐賀出身のねこ3匹🐈</li>
+          <li style="position: relative; padding: 0 0 0 28px; font-size: 15px; line-height: 1.9;"><span style="position: absolute; left: -4px; top: 11px; width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent);"></span><strong style="font-weight: 500;">2026年</strong> 2度の緊急入院・手術を経て…</li>
+        </ol>
+        <div style="margin-top: 40px; padding: 28px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);">
+          <p style="font-size: 15px; line-height: 2; margin: 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">入院を経ての気づきは、</p>
+          <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 21px; line-height: 1.8; margin: 8px 0 0;">「知識や正解にとらわれるより、自分の心の声を聴くことの方がずっと大切」ということ。</p>
+        </div>
+        <div style="font-family: 'Zen Kaku Gothic New', sans-serif; display: flex; flex-direction: column; gap: 18px; margin-top: 28px; font-size: 15px; line-height: 2; text-align: justify; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+          <p style="margin: 0;">入院を経て、うさとあそ部も一旦終わりにすることも考えました。でも、ワクワクしながら働くこと、旅しながらでも自由にお仕事をすること、またその上で人生を豊かにするためにAIや💻📱を使うことは今後もやめない。</p>
+          <p style="margin: 0;">他の方と違うところは、わたしは人生の本質や豊かさを追求しがちなところ。笑<br>だから、頼りすぎず、自分軸を大切にするマインドも含めて、求めている方にお伝えしていこう！という思いが増しました。</p>
+          <p style="margin: 0;">2025年までしていた半年スクールを一旦お休みし、2026年はうさとあそ部（＆ずぼら部）にもっとエネルギーを注ごう！そしてリアルのつながりを大切にしよう、と改めて思いました。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div role="separator" style="display: flex; align-items: center; gap: 24px;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><img src="assets/wordmark.png" alt="" style="width: 56px; height: auto; opacity: 0.85;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span></div>
+
+  <!-- RECOMMEND -->
+  <section data-screen-label="Recommend" style="padding: clamp(72px, 10vw, 128px) 0;">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">For you</span>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">こんな人におすすめ</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 48px; margin-top: 48px;">
+      <ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-divider); font-size: 16px; line-height: 1.8;">
+        <li style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-accent);">—</span>「自分らしく働く」に興味がある方</li>
+        <li style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-accent);">—</span>うさしほの働き方の裏側が気になる方</li>
+        <li style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-accent);">—</span>AIやツールを暮らしや仕事に活かしたい方</li>
+        <li style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-accent);">—</span>自分のペースで何かやってみたい方</li>
+        <li style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-accent);">—</span>会社員でも、自分の可能性を広げたい方</li>
+        <li style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-accent);">—</span>すでに活動しているけど、もっと自由にやりたい方</li>
+      </ul>
+      <div class="card" style="padding: 36px; align-self: start;">
+        <p class="card-kicker" style="margin: 0;">共通して大切にしてほしいこと</p>
+        <ul style="list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 18px; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.7;">
+          <li>「こうあるべき」より「こうしたい」を大切にできる方</li>
+          <li>正解を求めるより、自分で試してみたい方</li>
+          <li>ゆるくても、自分の人生に真剣でありたい方</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section data-screen-label="Voices" style="padding: clamp(72px, 10vw, 128px) 0; background: #E8C4C0; box-shadow: 0 0 0 100vmax #E8C4C0; clip-path: inset(0 -100vmax);">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; margin-bottom: 20px;">Voices</span>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0; color: #fff;">実際のお声</h2>
+    <p style="font-size: 16px; line-height: 2; margin: 12px 0 0; color: #fff;">実際に参加されている方の声をご紹介します</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 20px; margin-top: 48px;">
+      <article class="card" style="background: #FAF6F2; border-color: #FAF6F2; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+        <span class="tag tag-accent" style="align-self: flex-start;">初心者でも安心</span>
+        <h3 class="card-title" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">わかりやすくてすっと頭に入ってきます</h3>
+        <p class="card-body" style="font-size: 14px; line-height: 1.95; margin: 0; text-align: justify;">パソコンや細かい作業など得意でない私ですが、優しく教えてくれる説明はわかりやすくてすっと頭に入ってきます。難しく捕えていた事が、楽しくわくわくしながら学べる最高の場所ですね。</p>
+      </article>
+      <article class="card" style="background: #FAF6F2; border-color: #FAF6F2; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+        <span class="tag tag-accent" style="align-self: flex-start;">即実践</span>
+        <h3 class="card-title" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">サイト自体はアッという間にできてびっくり！</h3>
+        <p class="card-body" style="font-size: 14px; line-height: 1.95; margin: 0; text-align: justify;">LP・WEBサイト講座でやっとこさ形にできました。無料でこんなことができるなんてすごいです！</p>
+      </article>
+      <article class="card" style="background: #FAF6F2; border-color: #FAF6F2; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+        <span class="tag tag-accent" style="align-self: flex-start;">時間と心のゆとり</span>
+        <h3 class="card-title" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">子どもとも遊べるような「時間」を生み出せてます</h3>
+        <p class="card-body" style="font-size: 14px; line-height: 1.95; margin: 0; text-align: justify;">AIツールの学びを毎回即アウトプット。教えてもらったツールは大体全部一回使えるようになりました。講座をより良い資料やレジュメをプレゼントできました。</p>
+      </article>
+      <article class="card" style="background: #FAF6F2; border-color: #FAF6F2; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+        <span class="tag tag-accent" style="align-self: flex-start;">時間と心のゆとり</span>
+        <h3 class="card-title" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">時間と心に無茶余裕ができて泣きそうです！</h3>
+        <p class="card-body" style="font-size: 14px; line-height: 1.95; margin: 0; text-align: justify;">プロンプトの例が有料級。ChatGPTとガンマで無料プランでサクッと作成。出来た時間で子供たちとあそびにいける！</p>
+      </article>
+      <article class="card" style="background: #FAF6F2; border-color: #FAF6F2; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+        <span class="tag tag-accent" style="align-self: flex-start;">即実践</span>
+        <h3 class="card-title" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">素材集あれは…それだけですごい買うレベル！</h3>
+        <p class="card-body" style="font-size: 14px; line-height: 1.95; margin: 0; text-align: justify;">講座資料からのキャンバ資料を見て大興奮。ほんとにギバーですね。</p>
+      </article>
+      <article class="card" style="background: #FAF6F2; border-color: #FAF6F2; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+        <span class="tag tag-accent" style="align-self: flex-start;">初心者でも安心</span>
+        <h3 class="card-title" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">初めて作ってめちゃ感動</h3>
+        <p class="card-body" style="font-size: 14px; line-height: 1.95; margin: 0; text-align: justify;">ウェブサイトとLPの違いもわからぬまま受講しましたが、とっても楽しかったし感動。Gammaという便利なものも初めてしりました。世界を広げてくださって、ありがとうございました！</p>
+      </article>
+      <article class="card" style="background: #FAF6F2; border-color: #FAF6F2; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+        <span class="tag tag-accent" style="align-self: flex-start;">即実践</span>
+        <h3 class="card-title" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">早速ひとつ講座をまとめて案内をおくることができました</h3>
+        <p class="card-body" style="font-size: 14px; line-height: 1.95; margin: 0; text-align: justify;">まずやってみる～って感じですこしずつブラッシュアップ。講座の資料作成とか準備本当にありがとうございます！ノーション講座もお値段以上でした！</p>
+      </article>
+      <article class="card" style="background: #FAF6F2; border-color: #FAF6F2; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+        <span class="tag tag-accent" style="align-self: flex-start;">即実践</span>
+        <h3 class="card-title" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">控えめに言って最高すぎました</h3>
+        <p class="card-body" style="font-size: 14px; line-height: 1.95; margin: 0; text-align: justify;">頭抱えてプロにお願いしようかなと思っていたところが、たった数時間で作ることができました。感謝でございます！</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" data-screen-label="Features" style="padding: clamp(72px, 10vw, 128px) 0; scroll-margin-top: 72px;">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">What you get</span>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">うさとあそ部でできること</h2>
+    <p style="font-size: 16px; line-height: 2; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">月額制で、自分のペースで学べる環境を</p>
+
+    <div style="margin-top: 56px; border-top: 1px solid var(--color-divider);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 64px; padding: 48px 0; border-bottom: 1px solid var(--color-divider);">
+        <div>
+          <span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 64px; line-height: 1; color: var(--color-accent); font-feature-settings: 'tnum' 1;">01</span>
+          <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 26px; line-height: 1.5; margin: 20px 0 0;">月1｜うさしほの裏側シェア会</h3>
+          <p style="font-size: 15px; line-height: 1.9; margin: 8px 0 0; color: color-mix(in srgb, var(--color-text) 75%, transparent);">うさしほの仕事の裏側シェア</p>
+        </div>
+        <div style="font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+          <p style="margin: 0; text-align: justify;">AI・ツール・SNS・働き方・モチベーション・マインドなど、テーマは毎月メンバーの声をもとに組み立てます。</p>
+          <p style="margin: 20px 0 10px; font-size: 13px; letter-spacing: 0.1em; color: var(--color-accent-700);">SNSでは出していないリアルな裏側も</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tag tag-outline">SNS発信の裏側・リール作成</span><span class="tag tag-outline">AI活用術（ChatGPT・Geminiなど）</span><span class="tag tag-outline">働き方・マインドの話</span><span class="tag tag-outline">ツールの使い分け</span>
+          </div>
+          <p style="margin: 20px 0 0; font-size: 14px; color: var(--color-accent-700);">過去30時間以上の動画見放題・録画アーカイブあり・いつでも視聴可能</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 64px; padding: 48px 0; border-bottom: 1px solid var(--color-divider);">
+        <div>
+          <span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 64px; line-height: 1; color: var(--color-accent); font-feature-settings: 'tnum' 1;">02</span>
+          <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 26px; line-height: 1.5; margin: 20px 0 0;">月1回｜グループコンサル</h3>
+          <p style="font-size: 14px; line-height: 1.9; margin: 8px 0 0; color: color-mix(in srgb, var(--color-text) 75%, transparent);">※ リアルタイム参加者向け・毎月開催</p>
+        </div>
+        <div style="font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+          <p style="margin: 0; text-align: justify;">やってみて分からなかったことや、自分のビジネス・仕事の悩みを気軽に持ち込み、相談できる場。Zoomで少人数で行うので、お一人ひとりに向き合えます。</p>
+          <div style="margin-top: 20px; padding: 20px 24px; border: 1px solid var(--color-divider); border-radius: 20px;">
+            <p style="margin: 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 17px; color: var(--color-text);">グループコンサルとは？</p>
+            <p style="margin: 6px 0 0; font-size: 14px; line-height: 1.9; text-align: justify;">個別コンサルのように1対1ではなく、少人数のグループで行う相談会です。他の方の相談を聞くだけでも気づきがたくさんあります。</p>
+          </div>
+          <ul style="list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+            <li>— SNSの相談・投稿添削もOK</li>
+            <li>— AI活用やお仕事のモヤモヤ解消</li>
+            <li>— 他の方の話を聞くだけでも学びに</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 64px; padding: 48px 0; border-bottom: 1px solid var(--color-divider);">
+        <div>
+          <span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 64px; line-height: 1; color: var(--color-accent); font-feature-settings: 'tnum' 1;">03</span>
+          <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 26px; line-height: 1.5; margin: 20px 0 0;">部員限定サイト</h3>
+        </div>
+        <div style="font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+          <p style="margin: 0; text-align: justify;">参加できない月があっても安心。いつでも学び直せる環境を用意しています。</p>
+          <ul style="list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+            <li>— 過去講座（30時間以上）アーカイブ見放題</li>
+            <li>— 復習・学び直しOK</li>
+            <li>— メンバーとの交流</li>
+          </ul>
+          <p style="margin: 16px 0 0; font-size: 12px; line-height: 1.8; color: color-mix(in srgb, var(--color-text) 72%, transparent);">※ 部員限定サイトは、オンライン講座プラットフォーム「Fincs（フィンクス）」で運営しています。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(40px, 6vw, 88px); align-items: center; margin-top: 88px;">
+      <div>
+        <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Archive</span>
+        <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(24px, 2.8vw, 32px); line-height: 1.5; margin: 0;">過去の講座アーカイブが見放題</h3>
+        <p style="font-size: 15px; line-height: 2; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">入部後は、すべての過去講座をいつでも復習できます。</p>
+        <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-divider);">
+          <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.7; margin: 0;">実は、このサイトもAIで作っています</p>
+          <p style="font-size: 14px; line-height: 1.95; margin: 8px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent); text-align: justify;">うさとあそ部では、このようなサイト制作やデザインのスキルも学べます。AIを使えば、専門知識がなくてもここまでできる時代です。</p>
+        </div>
+      </div>
+      <figure style="margin: 0;">
+        <div class="plate" style="aspect-ratio: 16 / 10; width: 100%;">
+          <image-slot id="archive-shot" shape="rect" placeholder="過去講座アーカイブ一覧のスクリーンショット"></image-slot>
+        </div>
+        <figcaption style="font-size: 12px; line-height: 1.8; margin-top: 10px; color: color-mix(in srgb, var(--color-text) 70%, transparent);">部員限定・いつでも視聴可能</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div role="separator" style="display: flex; align-items: center; gap: 24px;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span><img src="assets/wordmark.png" alt="" style="width: 56px; height: auto; opacity: 0.85;"><span style="flex: 1; height: 1px; background: var(--color-divider);"></span></div>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" data-screen-label="Schedule" style="padding: clamp(72px, 10vw, 128px) 0; scroll-margin-top: 72px;">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">Schedule</span>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">10月のスケジュール</h2>
+    <p style="font-size: 16px; line-height: 2; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 78%, transparent);">今月の予定をご紹介します</p>
+
+    <div style="margin-top: 56px; border-top: 1px solid var(--color-divider);">
+      <article style="display: grid; grid-template-columns: minmax(120px, 180px) minmax(0, 1fr); gap: 24px clamp(24px, 5vw, 72px); padding: 48px 0; border-bottom: 1px solid var(--color-divider);">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-size: 14px; letter-spacing: 0.1em; color: var(--color-accent-700);">10月</span>
+          <span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: clamp(64px, 8vw, 96px); line-height: 1; font-feature-settings: 'tnum' 1;">16</span>
+          <span style="font-size: 13px; line-height: 1.8; margin-top: 8px; color: color-mix(in srgb, var(--color-text) 75%, transparent);">金曜 19:30〜</span>
+        </div>
+        <div style="font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+          <span class="tag tag-accent">講座</span>
+          <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.6; margin: 14px 0 0; color: var(--color-text);">講座内容は近日公開</h3>
+          <p style="margin: 14px 0 0; text-align: justify;">テーマは、メンバーの声をもとに組み立て中です。決まり次第お知らせします🐰</p>
+        </div>
+      </article>
+
+      <article style="display: grid; grid-template-columns: minmax(120px, 180px) minmax(0, 1fr); gap: 24px clamp(24px, 5vw, 72px); padding: 48px 0; border-bottom: 1px solid var(--color-divider);">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-size: 14px; letter-spacing: 0.1em; color: var(--color-accent-700);">10月</span>
+          <span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: clamp(64px, 8vw, 96px); line-height: 1; font-feature-settings: 'tnum' 1;">27</span>
+          <span style="font-size: 13px; line-height: 1.8; margin-top: 8px; color: color-mix(in srgb, var(--color-text) 75%, transparent);">火曜 19:30〜</span>
+        </div>
+        <div style="font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+          <span class="tag tag-accent">講座</span>
+          <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.6; margin: 14px 0 0; color: var(--color-text);">講座内容は近日公開</h3>
+          <p style="margin: 14px 0 0; text-align: justify;">テーマは、メンバーの声をもとに組み立て中です。決まり次第お知らせします🐰</p>
+        </div>
+      </article>
+
+      <article style="display: grid; grid-template-columns: minmax(120px, 180px) minmax(0, 1fr); gap: 24px clamp(24px, 5vw, 72px); padding: 48px 0; border-bottom: 1px solid var(--color-divider);">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-size: 14px; letter-spacing: 0.1em; color: var(--color-accent-700);">10月</span>
+          <span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: clamp(64px, 8vw, 96px); line-height: 1; font-feature-settings: 'tnum' 1;">30</span>
+          <span style="font-size: 13px; line-height: 1.8; margin-top: 8px; color: color-mix(in srgb, var(--color-text) 75%, transparent);">金曜 19:30〜</span>
+        </div>
+        <div style="font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+          <span class="tag tag-accent">グループコンサル（質問会）</span>
+          <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(21px, 2.4vw, 26px); line-height: 1.6; margin: 14px 0 0; color: var(--color-text);">お仕事の悩み・モヤモヤを気軽に持ち込める場</h3>
+          <p style="margin: 14px 0 0; text-align: justify;">16日・27日の講座のご質問や、日頃の疑問なことなど、なんでもお聞きします〜！AI活用やお仕事で困っていること、モヤモヤしていることを気軽に持ち込んでいただける場です。</p>
+          <p style="margin: 10px 0 0; text-align: justify;">他の参加者さんのお話を聞くだけでも気づきになることがたくさんあります。なるべくリアルタイムでお話ししましょ〜🤭</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TOGETHER -->
+  <section data-screen-label="Together" style="padding: clamp(72px, 10vw, 128px) 0; text-align: center;">
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">仲間がいるから続けられる</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 0; margin: 48px auto 0; max-width: 1000px; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);">
+      <p style="margin: 0; padding: 32px 24px; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 18px; line-height: 1.8;">「こんな働き方もアリなんだ」と選択肢が広がる</p>
+      <p style="margin: 0; padding: 32px 24px; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 18px; line-height: 1.8; border-left: 1px solid var(--color-divider);">「わたしもそれ思ってた！」と自分の気持ちに気づける</p>
+      <p style="margin: 0; padding: 32px 24px; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 18px; line-height: 1.8; border-left: 1px solid var(--color-divider);">「やってみよ〜」の空気で、小さく動き出せる</p>
+    </div>
+    <p style="font-size: 16px; line-height: 2; margin: 40px 0 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">完璧じゃなくていい。<br>小さな「やってみた！」を大切に🐰</p>
+  </section>
+
+  <!-- PRICE -->
+  <section id="price" data-screen-label="Price" style="padding: clamp(72px, 10vw, 112px) 0; scroll-margin-top: 72px; background: #E8C4C0; box-shadow: 0 0 0 100vmax #E8C4C0; clip-path: inset(0 -100vmax);">
+    <div style="display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center; padding: clamp(32px, 5vw, 64px); border: 1px solid #574B47; border-radius: 24px;">
+      <div>
+        <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #574B47; margin-bottom: 16px;">Price</span>
+        <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(28px, 3.4vw, 38px); line-height: 1.45; margin: 0; color: #574B47;">参加方法＆料金</h2>
+        <p style="font-size: 15px; line-height: 2; margin: 12px 0 0; color: #574B47;">興味のある方はこちらから詳細をご覧ください</p>
+        <p style="margin: 20px 0 0; display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px; padding: 10px 24px; border-radius: 999px; background: #FAF6F2; color: #574B47; font-family: 'Kanata', var(--font-heading), serif; font-size: 17px; line-height: 1.6;"><span>募集期間</span><span>10/15（木）〜10/27（火）</span></p>
+      </div>
+      <a href="join.html" class="btn btn-primary" style="text-decoration: none; padding: 16px 32px; font-size: 16px; color: #fff; border-color: #574B47; background: #574B47; font-weight: 900;" style-hover="background: #3F3633; color: #fff; border-color: #3F3633;">料金・参加方法を見る</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" data-screen-label="FAQ" style="padding: clamp(72px, 10vw, 128px) 0; scroll-margin-top: 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 40px clamp(40px, 6vw, 88px); align-items: start;">
+    <div>
+      <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">FAQ</span>
+      <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">よくある質問</h2>
+    </div>
+    <div style="grid-column: span 2; min-width: 0; border-top: 1px solid var(--color-divider);">
+      <details open="{{ faqOpen }}" style="border-bottom: 1px solid var(--color-divider);">
+        <summary style="list-style: none; cursor: pointer; display: flex; gap: 16px; align-items: baseline; padding: 22px 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.6;"><span style="color: var(--color-accent);">Q.</span><span style="flex: 1;">初心者でも参加できますか？</span><span class="faq-mark" style="color: var(--color-accent); font-size: 22px; transition: transform .2s;">+</span></summary>
+        <div style="padding: 0 0 24px 36px; font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">大丈夫です。アーカイブで復習できますので、ご自身のペースで学んでいただけます。</div>
+      </details>
+      <details open="{{ faqOpen }}" style="border-bottom: 1px solid var(--color-divider);">
+        <summary style="list-style: none; cursor: pointer; display: flex; gap: 16px; align-items: baseline; padding: 22px 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.6;"><span style="color: var(--color-accent);">Q.</span><span style="flex: 1;">毎回リアルタイム参加できません</span><span class="faq-mark" style="color: var(--color-accent); font-size: 22px; transition: transform .2s;">+</span></summary>
+        <div style="padding: 0 0 24px 36px; font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">講座は録画アーカイブがありますので、お好きなタイミングで視聴いただけます。グループコンサルはリアルタイム参加をおすすめしていますが、無理のない範囲でご参加ください。</div>
+      </details>
+      <details open="{{ faqOpen }}" style="border-bottom: 1px solid var(--color-divider);">
+        <summary style="list-style: none; cursor: pointer; display: flex; gap: 16px; align-items: baseline; padding: 22px 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.6;"><span style="color: var(--color-accent);">Q.</span><span style="flex: 1;">グループコンサルって何ですか？</span><span class="faq-mark" style="color: var(--color-accent); font-size: 22px; transition: transform .2s;">+</span></summary>
+        <div style="padding: 0 0 24px 36px; font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">少人数のZoomで行う相談会です（リアルタイム参加者向け・毎月開催）。自分のビジネスや仕事の悩みを持ち込める場で、他の方の相談を聞くだけでも気づきがたくさんあるので、相談がなくても参加OKです。</div>
+      </details>
+      <details open="{{ faqOpen }}" style="border-bottom: 1px solid var(--color-divider);">
+        <summary style="list-style: none; cursor: pointer; display: flex; gap: 16px; align-items: baseline; padding: 22px 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.6;"><span style="color: var(--color-accent);">Q.</span><span style="flex: 1;">いつでも入部できますか？</span><span class="faq-mark" style="color: var(--color-accent); font-size: 22px; transition: transform .2s;">+</span></summary>
+        <div style="padding: 0 0 24px 36px; font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">入部時期はこちらで不定期にご案内しています。公式LINEでお知らせしますので、ご登録いただけると募集のタイミングを逃しません。</div>
+      </details>
+      <details open="{{ faqOpen }}" style="border-bottom: 1px solid var(--color-divider);">
+        <summary style="list-style: none; cursor: pointer; display: flex; gap: 16px; align-items: baseline; padding: 22px 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.6;"><span style="color: var(--color-accent);">Q.</span><span style="flex: 1;">解約は自由ですか？</span><span class="faq-mark" style="color: var(--color-accent); font-size: 22px; transition: transform .2s;">+</span></summary>
+        <div style="padding: 0 0 24px 36px; font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">いつでもOKです。再入部も歓迎しています（ただし再入部時はその時点の料金が適用されます）。</div>
+      </details>
+      <details open="{{ faqOpen }}" style="border-bottom: 1px solid var(--color-divider);">
+        <summary style="list-style: none; cursor: pointer; display: flex; gap: 16px; align-items: baseline; padding: 22px 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.6;"><span style="color: var(--color-accent);">Q.</span><span style="flex: 1;">起業塾やビジネススクールとは違うのですか？</span><span class="faq-mark" style="color: var(--color-accent); font-size: 22px; transition: transform .2s;">+</span></summary>
+        <div style="padding: 0 0 24px 36px; font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">起業塾のように「こうすれば稼げます」と教える場ではありません。うさしほのリアルな働き方の裏側をまるっとシェアしながら、それぞれが「自分らしい働き方」を自分のペースで見つけていくコミュニティです。大切なのは、自分がどうありたいか。</div>
+      </details>
+      <details open="{{ faqOpen }}" style="border-bottom: 1px solid var(--color-divider);">
+        <summary style="list-style: none; cursor: pointer; display: flex; gap: 16px; align-items: baseline; padding: 22px 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 19px; line-height: 1.6;"><span style="color: var(--color-accent);">Q.</span><span style="flex: 1;">同業者でも参加できますか？</span><span class="faq-mark" style="color: var(--color-accent); font-size: 22px; transition: transform .2s;">+</span></summary>
+        <div style="padding: 0 0 24px 36px; font-size: 15px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent); display: flex; flex-direction: column; gap: 12px;">
+          <p style="margin: 0;">もちろん大歓迎です。うさとあそ部では、すでにご自身で活動されている方の参加も歓迎しています。</p>
+          <p style="margin: 0;">たとえば、<br>・講座やレッスンを開催している方<br>・オンラインサロンやコミュニティを運営している方<br>・SNS発信やコンテンツ販売をしている方<br>・セラピスト、ヨガ講師、料理講師などの活動をされている方</p>
+          <p style="margin: 0;">など、すでに何かしらの形でお仕事をされている方もたくさん参加されています。</p>
+          <p style="margin: 0;">うさとあそ部は「競争する場所」ではなく、それぞれが自分の活動や人生をより豊かにするために学びやアイデアをシェアし合うコミュニティです。</p>
+          <p style="margin: 0;">初心者の方も、すでに活動されている方も、お互いに刺激を受けながら成長できる場を大切にしています。</p>
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<!-- CLOSING -->
+<section id="join" data-screen-label="Closing" style="border-top: 1px solid var(--color-divider); scroll-margin-top: 72px;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: clamp(72px, 10vw, 128px) clamp(20px, 5vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(40px, 6vw, 88px); align-items: center;">
+    <figure class="plate" style="margin: 0; aspect-ratio: 4 / 3;">
+      <image-slot id="closing-bg" shape="rect" placeholder="クロージング画像"></image-slot>
+    </figure>
+    <div>
+      <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">最後に</span>
+      <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 400; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.4; margin: 0;">どう働くかは、<br>どう生きるか。</h2>
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 32px; font-size: 16px; line-height: 2; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
+        <p style="margin: 0;">正解なんてないし、まだ「こうしたい」がぼんやりでもいい。</p>
+        <p style="margin: 0;">うさしほのリアルを見て、仲間の話を聞いて、「あ、わたしはこうしたいかも」が見つかっていく。そんな場所です。</p>
+        <p style="margin: 0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 20px; color: var(--color-text);">たのしく、おもしろく働こ〜！</p>
+        <p style="margin: 0;">気になったら来てみてね〜！うさとあそ部で待ってます🐰</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 36px;">
+        <a href="join.html" class="btn btn-primary" style="text-decoration: none; padding: 14px 28px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に参加する</a>
+        <span class="tag tag-accent" style="font-family: 'Kanata', var(--font-heading), serif; font-size: 14px; padding: 8px 16px;">募集期間　10/15（木）〜10/27（火）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background: #574B47; color: #FAF6F2;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 48px clamp(20px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-end;">
+    <div>
+      <div style="display: flex; align-items: center; gap: 12px;"><img src="assets/logo.png" alt="うさとあそ部ロゴ" style="width: 64px; height: 64px; object-fit: contain;"><p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 22px; margin: 0;">うさとあそ部</p></div>
+      <p style="font-size: 13px; line-height: 1.9; margin: 6px 0 0; color: #FAF6F2;">たのしく、おもしろく働こ〜！うさしほの働き方の裏側🤭</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 13px; color: #FAF6F2;">
+      <a href="privacy.html" style="color: #FAF6F2;">プライバシーポリシー</a>
+      <a href="tokushoho.html" style="color: #FAF6F2;">特定商取引法に基づく表記</a>
+      <span>© 2026 うさとあそ部 All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{ stickyCta }}" hint-placeholder-val="{{ false }}">
+  <a href="#join" class="btn btn-primary" style="position: fixed; right: 20px; bottom: 20px; z-index: 30; text-decoration: none; background: #E8C4C0; border: 3px solid #F7EFE1; color: #574B47; font-weight: 900; box-shadow: var(--shadow-md); padding: 12px 22px; white-space: nowrap;" style-hover="background: #DDB0AB; border-color: #F7EFE1; color: #574B47;">参加する ・ <span style="font-family: 'Kanata', var(--font-heading), serif;">10/27〆切</span></a>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;faqOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const s = document.documentElement.style;
+    ['--color-bg','--color-surface','--color-text','--color-divider','--color-accent','--color-accent-2'].forEach(k => s.removeProperty(k));
+    for (let k = 100; k <= 900; k += 100) { s.removeProperty(`--color-accent-${k}`); s.removeProperty(`--color-accent-2-${k}`); }
+  }
+  renderVals() {
+    return {
+      faqOpen: this.props.faqOpen ?? false,
+      stickyCta: this.props.stickyCta ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>
