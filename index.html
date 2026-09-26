@@ -76,20 +76,58 @@ image-slot { touch-action: pan-y; }
 }
 .nav a { white-space: nowrap; }
 .nav a:not(.btn) { font-family: 'Kanata', var(--font-heading), serif; }
-@media (max-width: 1080px) { .nav a:not(.nav-brand):not(.btn) { display: none; } }
+.nav { flex-wrap: nowrap !important; }
+.nav .btn { margin-left: auto; }
+[data-nav-links] { position: absolute; top: calc(100% + 8px); right: clamp(20px, 5vw, 72px); width: min(320px, calc(100vw - 40px)); flex-direction: column; align-items: stretch !important; gap: 0 !important; padding: 8px 24px 12px; background: #fff; border: 1px solid #E8C4C0; box-shadow: var(--shadow-md); border-radius: 24px; }
+@media (max-width: 1080px) {
+  [data-nav-links] { position: absolute; top: 100%; left: 0; right: 0; width: auto; flex-direction: column; align-items: stretch !important; gap: 0 !important; padding: 8px clamp(20px, 5vw, 72px) 20px; background: var(--color-bg); border-top: 1px solid var(--color-divider); box-shadow: var(--shadow-md); border-radius: 0 0 24px 24px; }
+}
+[data-nav-links][data-open="false"] { display: none !important; }
+[data-nav-links] a { padding: 14px 4px; border-bottom: 1px solid var(--color-divider); font-size: 16px; text-decoration: none; color: var(--color-text); }
+[data-nav-links] a:last-child { border-bottom: 0; }
 details[open] .faq-mark { transform: rotate(45deg); }
+@keyframes pop-in { 0% { opacity: 0; transform: translateY(56px) scale(.88) rotate(var(--r, 0deg)); } 60% { opacity: 1; transform: translateY(-10px) scale(1.04) rotate(calc(var(--r, 0deg) * -.5)); } 80% { transform: translateY(3px) scale(.99); } 100% { opacity: 1; transform: none; } }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(var(--r, 0deg)); } }
+@keyframes jelly { 0%, 100% { transform: scale(1, 1); } 30% { transform: scale(1.12, .88); } 50% { transform: scale(.92, 1.08); } 70% { transform: scale(1.04, .96); } }
+@keyframes hop { 0%, 88%, 100% { transform: translateY(0); } 91% { transform: translateY(-14px) rotate(-3deg); } 94% { transform: translateY(0) scale(1.06, .94); } 97% { transform: translateY(-5px); } }
+@keyframes drift { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(var(--dx), var(--dy)) rotate(40deg); } }
+@keyframes wiggle-in { 0% { opacity: 0; transform: scale(0) rotate(-90deg); } 70% { opacity: 1; transform: scale(1.15) rotate(12deg); } 100% { transform: scale(1) rotate(0); } }
+html[data-play="on"] [data-reveal]:not([data-in]) { opacity: 0; }
+html[data-play="on"] [data-reveal][data-in] { animation: pop-in .9s cubic-bezier(.34, 1.4, .64, 1) both; animation-delay: calc(var(--i, 0) * 90ms); }
+@keyframes rise-in { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: none; } }
+html[data-play="on"] [data-reveal="soft"][data-in] { animation: rise-in .7s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(var(--i, 0) * 60ms); }
+html[data-play="on"] [data-gallery] > figure[data-in] { animation: pop-in .9s cubic-bezier(.34, 1.4, .64, 1) both, bob 5s ease-in-out infinite; animation-delay: calc(var(--i, 0) * 110ms), calc(1.2s + var(--i, 0) * 400ms); }
+html[data-play="on"] h3[data-marker] { background-size: 0% 100% !important; background-repeat: no-repeat !important; transition: background-size 1.1s cubic-bezier(.65, 0, .35, 1) .35s; }
+html[data-play="on"] h3[data-marker][data-in] { background-size: 100% 100% !important; }
+html[data-play="on"] .btn:hover { animation: jelly .6s ease both; }
+html[data-play="on"] a.btn[style*="bottom: 20px"] { animation: hop 8s ease-in-out 1s infinite; }
+html[data-play="on"] button[style*="top: 16px"] { animation: wiggle-in .6s cubic-bezier(.34, 1.56, .64, 1) both; }
+html[data-play="on"] .plate { transition: transform .5s cubic-bezier(.34, 1.56, .64, 1); }
+html[data-play="on"] .plate:hover { transform: rotate(-2.5deg) scale(1.04); }
+html[data-play="on"] [data-gallery] > figure:nth-child(even):hover { transform: rotate(2.5deg) scale(1.04); }
+html[data-play="on"] article.card { transition: transform .4s cubic-bezier(.34, 1.56, .64, 1); }
+html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1deg); }
+@media print { html[data-play="on"] [data-reveal] { opacity: 1 !important; animation: none !important; } html[data-play="on"] h3[data-marker] { background-size: 100% 100% !important; } }
+@media (prefers-reduced-motion: reduce) { html[data-play="on"] * { animation: none !important; transition: none !important; } html[data-play="on"] [data-reveal] { opacity: 1 !important; } }
 </style>
 </helmet>
 
-<nav class="nav" style="position: sticky; top: 0; z-index: 20; background: var(--color-bg); padding-inline: clamp(20px, 5vw, 72px); flex-wrap: wrap; row-gap: 8px;">
+<nav class="nav" style="position: relative; z-index: 40; background: var(--color-bg); padding-inline: clamp(20px, 5vw, 72px); flex-wrap: wrap; row-gap: 8px;">
   <a href="#top" class="nav-brand" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; text-decoration: none; color: var(--color-text); display: flex; align-items: center; gap: 10px;"><img src="assets/logo-sm.png" alt="" style="width: 44px; height: 44px; object-fit: contain;"><img src="assets/wordmark.png" alt="うさとあそ部" style="height: 22px; width: auto;"></a>
-  <a href="#about">うさとあそ部について</a>
-  <a href="#profile">うさしほについて</a>
-  <a href="#features">できること</a>
-  <a href="#schedule">10月のスケジュール</a>
-  <a href="#price">料金</a>
-  <a href="#faq">FAQ</a>
+  <div data-nav-links="" data-open="{{ menuOpenStr }}" onClick="{{ closeMenu }}" style="display: flex; align-items: center; gap: 28px;">
+    <a href="#about">うさとあそ部について</a>
+    <a href="#profile">うさしほについて</a>
+    <a href="#features">できること</a>
+    <a href="#schedule">10月のスケジュール</a>
+    <a href="#price">料金</a>
+    <a href="#faq">FAQ</a>
+  </div>
   <a href="join.html" class="btn btn-primary" style="text-decoration: none; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">入会する</a>
+  <button type="button" data-nav-toggle="" aria-label="メニュー" aria-expanded="{{ menuOpenStr }}" onClick="{{ toggleMenu }}" style="flex: none; width: 44px; height: 44px; margin-left: 8px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 0;" style-hover="background: #F3ECE6;">
+    <span style="display: block; width: 22px; height: 1.5px; border-radius: 2px; background: #574B47;"></span>
+    <span style="display: block; width: 22px; height: 1.5px; border-radius: 2px; background: #574B47;"></span>
+    <span style="display: block; width: 22px; height: 1.5px; border-radius: 2px; background: #574B47;"></span>
+  </button>
 </nav>
 
 <main id="top" style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px);">
@@ -172,7 +210,7 @@ details[open] .faq-mark { transform: rotate(45deg); }
 
     <div style="text-align: center; margin-top: 96px;">
       <p style="font-size: 16px; line-height: 2; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">わたしが目指したのは、たくさん働くことじゃなくて</p>
-      <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 400; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.5; margin: 24px 0; color: var(--color-text);">“人生を楽しむために働く”</p>
+      <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 400; font-size: clamp(20px, 6.4vw, 52px); white-space: nowrap; line-height: 1.5; margin: 24px 0; color: var(--color-text);">“人生を楽しむために働く”</p>
       <p style="font-size: 16px; line-height: 2; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">暮らし。</p>
       <p style="font-size: 16px; line-height: 2; margin: 24px 0 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">AIは、その暮らしを叶える大切な相棒です。</p>
       <p style="font-size: 14px; line-height: 1.9; margin: 32px auto 0; max-width: 40em; padding-top: 24px; border-top: 1px solid var(--color-divider); color: var(--color-accent-700);">ちなみに、このサイトもAIでつくりました。<br>うさとあそ部では、こんなスキルも学べます🐰</p>
@@ -604,23 +642,88 @@ details[open] .faq-mark { transform: rotate(45deg); }
   </div>
 </footer>
 
+<sc-if value="{{ showFloatMenu }}" hint-placeholder-val="{{ false }}">
+  <button type="button" aria-label="メニュー" aria-expanded="{{ floatOpenStr }}" onClick="{{ toggleFloat }}" style="position: fixed; top: 16px; right: 16px; z-index: 50; width: 52px; height: 52px; border-radius: 999px; background: #E8C4C0; border: 3px solid #F7EFE1; box-shadow: var(--shadow-md); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0;" style-hover="background: #DDB0AB;">
+    <span style="display: block; width: 20px; height: 2px; border-radius: 2px; background: #574B47;"></span>
+    <span style="display: block; width: 20px; height: 2px; border-radius: 2px; background: #574B47;"></span>
+    <span style="display: block; width: 20px; height: 2px; border-radius: 2px; background: #574B47;"></span>
+  </button>
+  <sc-if value="{{ floatOpen }}" hint-placeholder-val="{{ false }}">
+    <nav onClick="{{ closeFloat }}" style="position: fixed; top: 78px; right: 16px; z-index: 50; width: min(300px, calc(100vw - 32px)); display: flex; flex-direction: column; padding: 8px 24px 12px; background: #fff; border: 1px solid #E8C4C0; border-radius: 24px; box-shadow: var(--shadow-md); font-family: 'Kanata', var(--font-heading), serif;">
+      <a href="#about" style="padding: 14px 4px; border-bottom: 1px solid var(--color-divider); font-size: 16px; text-decoration: none; color: #574B47;">うさとあそ部について</a>
+      <a href="#profile" style="padding: 14px 4px; border-bottom: 1px solid var(--color-divider); font-size: 16px; text-decoration: none; color: #574B47;">うさしほについて</a>
+      <a href="#features" style="padding: 14px 4px; border-bottom: 1px solid var(--color-divider); font-size: 16px; text-decoration: none; color: #574B47;">できること</a>
+      <a href="#schedule" style="padding: 14px 4px; border-bottom: 1px solid var(--color-divider); font-size: 16px; text-decoration: none; color: #574B47;">10月のスケジュール</a>
+      <a href="#price" style="padding: 14px 4px; border-bottom: 1px solid var(--color-divider); font-size: 16px; text-decoration: none; color: #574B47;">料金</a>
+      <a href="#faq" style="padding: 14px 4px; border-bottom: 1px solid var(--color-divider); font-size: 16px; text-decoration: none; color: #574B47;">FAQ</a>
+      <a href="#top" style="padding: 14px 4px; font-size: 16px; text-decoration: none; color: #574B47;">トップへ戻る</a>
+    </nav>
+  </sc-if>
+</sc-if>
+
 <sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
   <a href="join.html" class="btn btn-primary" style="position: fixed; right: 20px; bottom: 20px; z-index: 30; text-decoration: none; background: #E8C4C0; border: 3px solid #F7EFE1; color: #574B47; font-weight: 900; box-shadow: var(--shadow-md); padding: 12px 22px; white-space: nowrap;" style-hover="background: #DDB0AB; border-color: #F7EFE1; color: #574B47;">入会する ・ <span style="font-family: 'Kanata', var(--font-heading), serif;">10/27〆切</span></a>
 </sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;faqOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;animations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;},&quot;faqOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;}}">
 class Component extends DCLogic {
-  state = { past: false };
+  state = { past: false, menuOpen: false };
   componentDidMount() {
     window.addEventListener('scroll', this._onScroll, { passive: true });
     const s = document.documentElement.style;
     ['--color-bg','--color-surface','--color-text','--color-divider','--color-accent','--color-accent-2'].forEach(k => s.removeProperty(k));
     for (let k = 100; k <= 900; k += 100) { s.removeProperty(`--color-accent-${k}`); s.removeProperty(`--color-accent-2-${k}`); }
+    this._setupPlay();
   }
-  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+  componentDidUpdate(pp) { if ((pp.animations ?? true) !== (this.props.animations ?? true)) this._setupPlay(); }
+  _setupPlay = () => {
+    const root = document.documentElement;
+    this._io && this._io.disconnect();
+    if (!(this.props.animations ?? true)) { root.removeAttribute('data-play'); return; }
+    root.setAttribute('data-play', 'on');
+    const reveal = 'main section > span, main section > h2, main section > p, main section > div > *, main section > figure, main > figure, [data-hero-text] > *, [data-gallery] > figure, #join figure, #join div > *';
+    const els = new Set();
+    document.querySelectorAll(reveal).forEach(el => {
+      if (el.matches('h3[style*="background: li"], [data-gallery], [data-hero-text]')) return;
+      el.setAttribute('data-reveal', el.matches('h1, h2, figure, article, .btn, .card, [style*="border-radius"]') ? '' : 'soft');
+      const i = Array.prototype.indexOf.call(el.parentNode.children, el) % 6;
+      el.style.setProperty('--i', i);
+      el.style.setProperty('--r', (i % 2 ? 3 : -3) + 'deg');
+      els.add(el);
+    });
+    document.querySelectorAll('main h3[style*="background: li"]').forEach(el => { el.setAttribute('data-marker', ''); els.add(el); });
+    this._io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.setAttribute('data-in', ''); this._io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => this._io.observe(el));
+    const sweep = (all) => els.forEach(el => { if (el.hasAttribute('data-in')) return; if (all || el.getBoundingClientRect().top < window.innerHeight) { el.setAttribute('data-in', ''); this._io.unobserve(el); } });
+    sweep(false);
+    clearTimeout(this._playT);
+    this._playT = setTimeout(() => sweep(document.visibilityState !== 'visible'), 1500);
+    if (!this._vis) { this._vis = () => sweep(false); document.addEventListener('visibilitychange', this._vis); window.addEventListener('scroll', this._vis, { passive: true }); }
+  };
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); this._io && this._io.disconnect(); clearTimeout(this._playT); if (this._vis) { document.removeEventListener('visibilitychange', this._vis); window.removeEventListener('scroll', this._vis); } }
   _onScroll = () => { const past = window.scrollY > window.innerHeight * 0.8; if (past !== this.state.past) this.setState({ past }); };
   renderVals() {
+    const bubbles = [
+      { l: '6%', t: '18%', s: 120, c: 'fill', dx: '40px', dy: '-60px', d: 18 },
+      { l: '88%', t: '12%', s: 70, c: 'ring', dx: '-50px', dy: '40px', d: 14 },
+      { l: '78%', t: '62%', s: 160, c: 'fill', dx: '-30px', dy: '-70px', d: 22 },
+      { l: '12%', t: '76%', s: 54, c: 'ring', dx: '60px', dy: '-30px', d: 16 },
+      { l: '48%', t: '40%', s: 28, c: 'fill', dx: '-40px', dy: '50px', d: 12 },
+      { l: '32%', t: '8%', s: 40, c: 'ring', dx: '30px', dy: '60px', d: 20 },
+      { l: '62%', t: '88%', s: 90, c: 'fill', dx: '50px', dy: '-40px', d: 19 },
+    ];
+    const playLayer = (this.props.animations ?? true) ? React.createElement('div', { 'aria-hidden': true, style: { position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden' } },
+      bubbles.map((b, i) => React.createElement('span', { key: i, style: { position: 'absolute', left: b.l, top: b.t, width: b.s, height: b.s, borderRadius: '50%', background: b.c === 'fill' ? 'rgba(232,196,192,.45)' : 'transparent', border: b.c === 'ring' ? '1.5px solid rgba(201,168,106,.6)' : 'none', '--dx': b.dx, '--dy': b.dy, animation: `drift ${b.d}s ease-in-out ${-i * 2}s infinite alternate` } }))) : null;
     return {
+      playLayer,
+      showFloatMenu: this.state.past,
+      floatOpen: this.state.past && this.state.floatOpen,
+      floatOpenStr: this.state.floatOpen ? 'true' : 'false',
+      toggleFloat: () => this.setState(s => ({ floatOpen: !s.floatOpen })),
+      closeFloat: () => this.setState({ floatOpen: false }),
+      menuOpenStr: this.state.menuOpen ? 'true' : 'false',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.state.menuOpen && this.setState({ menuOpen: false }),
       showSticky: (this.props.stickyCta ?? true) && this.state.past,
       faqOpen: this.props.faqOpen ?? false,
       stickyCta: this.props.stickyCta ?? true,
