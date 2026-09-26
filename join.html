@@ -29,13 +29,21 @@ a:hover { color: var(--color-accent-900); }
 .tag { border-radius: 999px; }
 .tag-outline { color: #574B47; }
 .tag-accent { background: #E8C4C0; color: #574B47; border-color: #E8C4C0; }
+@keyframes pop-in { 0% { opacity: 0; transform: translateY(56px) scale(.88) rotate(var(--r, 0deg)); } 60% { opacity: 1; transform: translateY(-10px) scale(1.04) rotate(calc(var(--r, 0deg) * -.5)); } 80% { transform: translateY(3px) scale(.99); } 100% { opacity: 1; transform: none; } }
+@keyframes rise-in { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: none; } }
+@keyframes jelly { 0%, 100% { transform: scale(1, 1); } 30% { transform: scale(1.12, .88); } 50% { transform: scale(.92, 1.08); } 70% { transform: scale(1.04, .96); } }
+html[data-play="on"] [data-reveal]:not([data-in]) { opacity: 0; }
+html[data-play="on"] [data-reveal][data-in] { animation: pop-in .9s cubic-bezier(.34, 1.4, .64, 1) both; animation-delay: calc(var(--i, 0) * 90ms); }
+html[data-play="on"] [data-reveal="soft"][data-in] { animation: rise-in .7s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(var(--i, 0) * 60ms); }
+html[data-play="on"] .btn:hover { animation: jelly .6s ease both; }
+@media print { html[data-play="on"] [data-reveal] { opacity: 1 !important; animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { html[data-play="on"] * { animation: none !important; } html[data-play="on"] [data-reveal] { opacity: 1 !important; } }
 </style>
 </helmet>
 
 <nav class="nav" style="position: sticky; top: 0; z-index: 20; background: var(--color-bg); padding-inline: clamp(20px, 5vw, 72px);">
   <a href="index.html" class="nav-brand" style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; text-decoration: none; color: var(--color-text); display: flex; align-items: center; gap: 10px;"><img src="assets/logo-sm.png" alt="" style="width: 44px; height: 44px; object-fit: contain;"><img src="assets/wordmark.png" alt="うさとあそ部" style="height: 22px; width: auto;"></a>
-  <a href="index.html" style="font-family: 'Kanata', var(--font-heading), serif; white-space: nowrap;">トップへ戻る</a>
-  <a href="https://fincs.jp/plan/6051691560317356144?tab=overview" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration: none; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900; white-space: nowrap;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">入会する</a>
+  <a href="index.html" style="font-family: 'Kanata', var(--font-heading), serif; white-space: nowrap; margin-left: auto;">トップへ戻る</a>
 </nav>
 
 <main style="max-width: 880px; margin: 0 auto; padding: clamp(56px, 9vw, 112px) clamp(20px, 5vw, 72px) clamp(72px, 10vw, 128px);">
@@ -59,7 +67,7 @@ a:hover { color: var(--color-accent-900); }
         </p>
         <p style="margin: 14px 0 0; font-size: 13px; line-height: 1.9; color: color-mix(in srgb, var(--color-text) 78%, transparent);">※ 記載の料金に加えて、別途5%の決済手数料がかかります。</p>
       </div>
-      <a href="https://fincs.jp/plan/6051691560317356144?tab=overview" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration: none; padding: 14px 32px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に入会する</a>
+      <a href="https://fincs.jp/plan/6051691560317356144?tab=overview" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration: none; padding: 14px 32px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に入部する</a>
     </div>
     <div style="border-top: 1px solid var(--color-divider); padding-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 16px 32px;">
       <div>
@@ -83,8 +91,9 @@ a:hover { color: var(--color-accent-900); }
   <!-- FLOW -->
   <section style="margin-top: clamp(72px, 10vw, 112px);">
     <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #574B47; margin-bottom: 16px;">Flow</span>
-    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.5; margin: 0;">入会の流れ</h2>
-    <p style="font-size: 15px; line-height: 2; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">うさとあそ部は、オンライン講座プラットフォーム「Fincs（フィンクス）」で運営しています。講座ページの「入会する」から手続きしてください。</p>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.5; margin: 0;">入部の流れ</h2>
+    <p style="font-size: 15px; line-height: 2; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">うさとあそ部は、オンライン講座プラットフォーム「Fincs（フィンクス）」で運営しています。講座ページの「入部する」から手続きしてください。</p>
+    <p style="font-size: 13px; line-height: 1.9; margin: 6px 0 0; color: color-mix(in srgb, var(--color-text) 75%, transparent);">※ Fincsの画面では「入部」が「入会」と表示されます。</p>
 
     <div style="margin-top: 40px; display: flex; flex-direction: column; gap: 20px;">
       <div class="card" style="padding: 28px 32px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 24px; align-items: start;">
@@ -92,7 +101,7 @@ a:hover { color: var(--color-accent-900); }
         <div>
           <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">講座ページから申し込む</h3>
           <ul style="list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 15px; line-height: 1.9; color: color-mix(in srgb, var(--color-text) 82%, transparent);">
-            <li>— うさとあそ部の「入会する」をクリック</li>
+            <li>— うさとあそ部の「入部する」をクリック</li>
             <li>— 月額プランを選ぶ</li>
           </ul>
         </div>
@@ -103,11 +112,11 @@ a:hover { color: var(--color-accent-900); }
           <h3 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: 20px; line-height: 1.6; margin: 0;">案内に従って進む</h3>
           <p style="margin: 8px 0 0; font-size: 15px; line-height: 1.9; color: color-mix(in srgb, var(--color-text) 82%, transparent);">以下の順に画面が進みます。</p>
           <ol style="list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px;">
-            <li class="tag tag-outline" style="font-size: 13px; padding: 6px 14px;">入会条件への同意</li>
+            <li class="tag tag-outline" style="font-size: 13px; padding: 6px 14px;">入部条件への同意</li>
             <li class="tag tag-outline" style="font-size: 13px; padding: 6px 14px;">個人情報の入力</li>
             <li class="tag tag-outline" style="font-size: 13px; padding: 6px 14px;">交付書面の確認</li>
             <li class="tag tag-outline" style="font-size: 13px; padding: 6px 14px;">お支払い情報の入力</li>
-            <li class="tag tag-outline" style="font-size: 13px; padding: 6px 14px;">入会内容の最終確認</li>
+            <li class="tag tag-outline" style="font-size: 13px; padding: 6px 14px;">入部内容の最終確認</li>
             <li class="tag tag-accent" style="font-size: 13px; padding: 6px 14px;">完了</li>
           </ol>
           <p style="margin: 14px 0 0; font-size: 13px; line-height: 1.9; color: color-mix(in srgb, var(--color-text) 75%, transparent);">個人情報の入力では、氏名・住所・電話番号などをご入力いただきます。</p>
@@ -121,21 +130,26 @@ a:hover { color: var(--color-accent-900); }
   <!-- NOTES -->
   <section style="margin-top: clamp(72px, 10vw, 112px);">
     <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: #574B47; margin-bottom: 16px;">Notes</span>
-    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.5; margin: 0;">ご入会前にご確認ください</h2>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.5; margin: 0;">ご入部前にご確認ください</h2>
     <ul style="list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--color-divider); font-size: 15px; line-height: 1.9;">
       <li style="padding: 18px 0; border-bottom: 1px solid var(--color-divider);">解約はいつでも可能です。</li>
       <li style="padding: 18px 0; border-bottom: 1px solid var(--color-divider);">今後、料金を改定（値上げ）する可能性があります。</li>
-      <li style="padding: 18px 0; border-bottom: 1px solid var(--color-divider);">ご継続中は、入会時の料金が適用されます。</li>
+      <li style="padding: 18px 0; border-bottom: 1px solid var(--color-divider);">ご継続中は、入部時の料金が適用されます。</li>
       <li style="padding: 18px 0; border-bottom: 1px solid var(--color-divider);">再入部の場合は、その時点の料金が適用されます。</li>
     </ul>
     <p style="margin: 20px 0 0; font-size: 13px; line-height: 1.9; color: color-mix(in srgb, var(--color-text) 75%, transparent);">詳しくは<a href="tokushoho.html">特定商取引法に基づく表記</a>をご確認ください。</p>
   </section>
 
   <!-- CTA -->
-  <section style="margin-top: clamp(72px, 10vw, 112px); padding: clamp(40px, 6vw, 64px) clamp(24px, 5vw, 56px); border-radius: 32px; background: #E8C4C0; text-align: center;">
-    <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: clamp(22px, 3vw, 30px); line-height: 1.6; margin: 0; color: #574B47;">自分らしい働き方を、一緒に。</p>
-    <p style="font-size: 15px; line-height: 2; margin: 10px 0 0;">うさとあそ部で待ってます🐰</p>
-    <a href="https://fincs.jp/plan/6051691560317356144?tab=overview" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 28px; text-decoration: none; padding: 14px 32px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に入会する</a>
+  <section style="margin-top: clamp(72px, 10vw, 112px); padding: clamp(28px, 5vw, 48px); border-radius: 32px; background: #E8C4C0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: clamp(28px, 5vw, 48px); align-items: center;">
+    <figure style="margin: 0; aspect-ratio: 3 / 4; border-radius: 24px; overflow: hidden;">
+      <img src="uploads/00012625.jpeg" alt="ヤシの木の下を歩くうさしほ" style="width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block;">
+    </figure>
+    <div style="text-align: center;">
+    <p style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: clamp(24px, 3.2vw, 32px); line-height: 1.6; margin: 0; color: #574B47;">自分だけの<br>働き方、生き方を<br>追求しよう！</p>
+    <p style="font-size: 15px; line-height: 2; margin: 14px 0 0;">うさとあそ部で待ってます🐰</p>
+    <a href="https://fincs.jp/plan/6051691560317356144?tab=overview" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 28px; text-decoration: none; padding: 14px 32px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に入部する</a>
+    </div>
   </section>
 
   <div style="margin-top: 48px;">
@@ -153,5 +167,32 @@ a:hover { color: var(--color-accent-900); }
   </div>
 </footer>
 </x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document.documentElement;
+    root.setAttribute('data-play', 'on');
+    const els = [];
+    document.querySelectorAll('main > *, main > section > *, main > section > div > *').forEach(el => {
+      if (el.tagName === 'SECTION' || el.matches('main > div:last-child')) return;
+      el.setAttribute('data-reveal', el.matches('h1, h2, h3, figure, article, .btn, .card, [style*="border-radius"], [style*="Raleway"]') ? '' : 'soft');
+      const i = Array.prototype.indexOf.call(el.parentNode.children, el) % 6;
+      el.style.setProperty('--i', i);
+      el.style.setProperty('--r', (i % 2 ? 3 : -3) + 'deg');
+      els.push(el);
+    });
+    this._io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.setAttribute('data-in', ''); this._io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => this._io.observe(el));
+    const sweep = all => els.forEach(el => { if (!el.hasAttribute('data-in') && (all || el.getBoundingClientRect().top < window.innerHeight)) { el.setAttribute('data-in', ''); this._io.unobserve(el); } });
+    sweep(false);
+    this._t = setTimeout(() => sweep(document.visibilityState !== 'visible'), 1500);
+    this._vis = () => sweep(false);
+    document.addEventListener('visibilitychange', this._vis);
+    window.addEventListener('scroll', this._vis, { passive: true });
+  }
+  componentWillUnmount() { this._io && this._io.disconnect(); clearTimeout(this._t); document.removeEventListener('visibilitychange', this._vis); window.removeEventListener('scroll', this._vis); }
+  renderVals() { return {}; }
+}
+</script>
 </body>
 </html>

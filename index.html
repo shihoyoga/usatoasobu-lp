@@ -77,7 +77,7 @@ image-slot { touch-action: pan-y; }
 .nav a { white-space: nowrap; }
 .nav a:not(.btn) { font-family: 'Kanata', var(--font-heading), serif; }
 .nav { flex-wrap: nowrap !important; }
-.nav .btn { margin-left: auto; }
+.nav [data-nav-toggle] { margin-left: auto !important; }
 [data-nav-links] { position: absolute; top: calc(100% + 8px); right: clamp(20px, 5vw, 72px); width: min(320px, calc(100vw - 40px)); flex-direction: column; align-items: stretch !important; gap: 0 !important; padding: 8px 24px 12px; background: #fff; border: 1px solid #E8C4C0; box-shadow: var(--shadow-md); border-radius: 24px; }
 @media (max-width: 1080px) {
   [data-nav-links] { position: absolute; top: 100%; left: 0; right: 0; width: auto; flex-direction: column; align-items: stretch !important; gap: 0 !important; padding: 8px clamp(20px, 5vw, 72px) 20px; background: var(--color-bg); border-top: 1px solid var(--color-divider); box-shadow: var(--shadow-md); border-radius: 0 0 24px 24px; }
@@ -122,7 +122,6 @@ html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1d
     <a href="#price">料金</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href="join.html" class="btn btn-primary" style="text-decoration: none; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">入会する</a>
   <button type="button" data-nav-toggle="" aria-label="メニュー" aria-expanded="{{ menuOpenStr }}" onClick="{{ toggleMenu }}" style="flex: none; width: 44px; height: 44px; margin-left: 8px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 0;" style-hover="background: #F3ECE6;">
     <span style="display: block; width: 22px; height: 1.5px; border-radius: 2px; background: #574B47;"></span>
     <span style="display: block; width: 22px; height: 1.5px; border-radius: 2px; background: #574B47;"></span>
@@ -145,7 +144,7 @@ html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1d
         <li style="display: flex; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--color-divider); font-size: 16px;"><span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 20px; color: var(--color-accent); font-feature-settings: 'tnum' 1; min-width: 28px;">03</span>アーカイブ見放題（30時間〜）</li>
       </ul>
       <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 36px;">
-        <a href="join.html" class="btn btn-primary" style="text-decoration: none; padding: 14px 28px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に入会する</a>
+        <a href="join.html" class="btn btn-primary" style="text-decoration: none; padding: 14px 28px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に入部する</a>
         <span class="tag tag-accent" style="font-family: 'Kanata', var(--font-heading), serif; font-size: 14px; padding: 8px 16px;">募集期間　10/15（木）〜10/27（火）</span>
       </div>
     </div>
@@ -621,7 +620,7 @@ html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1d
         <p style="margin: 0;">気になったら来てみてね〜！うさとあそ部で待ってます🐰</p>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 36px;">
-        <a href="join.html" class="btn btn-primary" style="text-decoration: none; padding: 14px 28px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に入会する</a>
+        <a href="join.html" class="btn btn-primary" style="text-decoration: none; padding: 14px 28px; font-size: 16px; background: #574B47; border-color: #574B47; color: #fff; font-weight: 900;" style-hover="background: #3F3633; border-color: #3F3633; color: #fff;">うさとあそ部に入部する</a>
         <span class="tag tag-accent" style="font-family: 'Kanata', var(--font-heading), serif; font-size: 14px; padding: 8px 16px;">募集期間　10/15（木）〜10/27（火）</span>
       </div>
     </div>
@@ -662,7 +661,7 @@ html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1d
 </sc-if>
 
 <sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
-  <a href="join.html" class="btn btn-primary" style="position: fixed; right: 20px; bottom: 20px; z-index: 30; text-decoration: none; background: #E8C4C0; border: 3px solid #F7EFE1; color: #574B47; font-weight: 900; box-shadow: var(--shadow-md); padding: 12px 22px; white-space: nowrap;" style-hover="background: #DDB0AB; border-color: #F7EFE1; color: #574B47;">入会する ・ <span style="font-family: 'Kanata', var(--font-heading), serif;">10/27〆切</span></a>
+  <a href="join.html" class="btn btn-primary" style="position: fixed; right: 20px; bottom: 20px; z-index: 30; text-decoration: none; background: #E8C4C0; border: 3px solid #F7EFE1; color: #574B47; font-weight: 900; box-shadow: var(--shadow-md); padding: 12px 22px; white-space: nowrap;" style-hover="background: #DDB0AB; border-color: #F7EFE1; color: #574B47;">入部する ・ <span style="font-family: 'Kanata', var(--font-heading), serif;">10/27〆切</span></a>
 </sc-if>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;animations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;},&quot;faqOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;}}">
