@@ -65,6 +65,11 @@ image-slot { touch-action: pan-y; }
   [data-screen-label="Voices"] > div { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px !important; margin-inline: calc(-1 * clamp(20px, 5vw, 72px)); padding: 0 clamp(20px, 5vw, 72px) 8px; scrollbar-width: none; }
   [data-screen-label="Voices"] > div::-webkit-scrollbar { display: none; }
   [data-screen-label="Voices"] > div > article { flex: 0 0 80%; scroll-snap-align: start; }
+  [data-screen-label="Lifestyle"] > div[style*="column-gap"] { grid-template-columns: 1fr 1fr !important; gap: 8px !important; margin-top: 40px !important; }
+  [data-screen-label="Lifestyle"] > div[style*="column-gap"] > div { padding: 12px 12px !important; border-radius: 14px !important; }
+  [data-screen-label="Lifestyle"] > div[style*="column-gap"] h3 { font-size: 13px !important; line-height: 1.55 !important; padding: 0 2px !important; }
+  [data-screen-label="Lifestyle"] > div[style*="column-gap"] > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  [data-screen-label="Lifestyle"] > div[style*="column-gap"] p { font-size: 12px !important; line-height: 1.65 !important; margin-top: 6px !important; text-align: left !important; }
   #schedule article { grid-template-columns: 1fr !important; }
   #faq > div { grid-column: auto !important; }
   [data-screen-label="Together"] > div > p { border-left: 0 !important; padding: 16px 8px !important; }
@@ -163,7 +168,8 @@ html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1d
             <span style="display: inline-block; padding: 1px 9px; border: 2px solid #C9776E; border-radius: 5px; color: #C9776E; font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.2em; transform: rotate(-4deg);">NEWS</span>
             <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #B08F52;">October Special</span>
           </span>
-          <span style="display: block; margin-top: 6px; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: clamp(18px, 2.6vw, 24px); line-height: 1.5;"><span style="white-space: nowrap;">10月のうさとあそ部は、</span><span style="background: linear-gradient(transparent 60%, #E8C4C0 60%); padding: 0 4px; white-space: nowrap;">超豪華！</span></span>
+          <span style="display: block; margin-top: 6px; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: clamp(18px, 2.6vw, 24px); line-height: 1.5;"><span style="white-space: nowrap;">10月のうさとあそ部は、</span><span style="white-space: nowrap;">超豪華！</span></span>
+          <span style="display: block; margin-top: 4px; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 12px; line-height: 1.7; color: #8C7F7A;">講義2回＋グルコン質問会の全3回が<span style="white-space: nowrap;">コミコミ5,500円</span>／入部特典「完全版49問」つき</span>
         </span>
         <span style="flex: none; margin-left: auto; display: inline-block; padding: 6px 14px; border-radius: 999px; background: #574B47; color: #FAF6F2; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 13px;">詳しく見る ↓</span>
       </span>
