@@ -116,6 +116,8 @@ html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1d
 @media (prefers-reduced-motion: reduce) { html[data-play="on"] * { animation: none !important; transition: none !important; } html[data-play="on"] [data-reveal] { opacity: 1 !important; } }
 #usato-voices::-webkit-scrollbar { display: none; }
 #usato-voices > article { flex: 0 0 min(320px, 82%); scroll-snap-align: start; box-sizing: border-box; }
+[data-sp-br] { display: none; }
+@media (max-width: 720px) { [data-sp-br] { display: inline; } }
 </style>
 </helmet>
 
@@ -640,8 +642,6 @@ html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1d
           <p style="margin: 14px 0 0; text-align: left;">AIを活用して、プログラミングの専門知識がなくても、自分だけのLPやWebページづくりに挑戦する講座。<br>実際に手を動かしながら、プロンプトの活用方法やデザインづくりを学びました。</p>
           <p style="margin: 22px 0 8px; font-size: 13px; font-weight: 700; color: #574B47;">受講者さんの声</p>
           <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px;"><li style="padding: 14px 18px; border-radius: 16px; background: #FAF6F2; font-size: 14px; line-height: 1.9; color: #574B47;">「こんなにおしゃれにつくれるのに驚きです。」</li><li style="padding: 14px 18px; border-radius: 16px; background: #FAF6F2; font-size: 14px; line-height: 1.9; color: #574B47;">「こんな簡単にサイトが作れるなんて、感動しました！」</li><li style="padding: 14px 18px; border-radius: 16px; background: #FAF6F2; font-size: 14px; line-height: 1.9; color: #574B47;">「自分で調べてやるとなると出来るのだろうけど億劫だな…と思っていたところを『私にも出来るかも！』まで持っていっていただけて感謝です🌟」</li><li style="padding: 14px 18px; border-radius: 16px; background: #FAF6F2; font-size: 14px; line-height: 1.9; color: #574B47;">「LPというと固くなりがちですが、プロフィールとか、未来の企画とか、じゃんじゃん作れると思うとワクワクして、毎日触ったり作りたくなりました！」</li></ul>
-          <p style="margin: 22px 0 8px; font-size: 13px; font-weight: 700; color: #574B47;">アンケート結果</p>
-          <ul style="list-style: none; margin: 0 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr)); gap: 8px;"><li style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 16px; background: #fff; border: 1px solid #E8C4C0;"><span style="display: flex; align-items: baseline; gap: 4px; color: #574B47;"><span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 34px; line-height: 1;">19</span><span style="font-size: 13px; font-weight: 700;">名</span></span><span style="font-size: 13px; line-height: 1.6; color: #574B47;">回答者</span></li><li style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 16px; background: #fff; border: 1px solid #E8C4C0;"><span style="display: flex; align-items: baseline; gap: 4px; color: #574B47;"><span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 34px; line-height: 1;">10</span><span style="font-size: 13px; font-weight: 700;">名</span></span><span style="font-size: 13px; line-height: 1.6; color: #574B47;">LPのたたき台を作成し、ブラッシュアップ中</span></li><li style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 16px; background: #fff; border: 1px solid #E8C4C0;"><span style="display: flex; align-items: baseline; gap: 4px; color: #574B47;"><span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 34px; line-height: 1;">4</span><span style="font-size: 13px; font-weight: 700;">名</span></span><span style="font-size: 13px; line-height: 1.6; color: #574B47;">AIへの指示・制作に挑戦中</span></li><li style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 16px; background: #fff; border: 1px solid #E8C4C0;"><span style="display: flex; align-items: baseline; gap: 4px; color: #574B47;"><span style="font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 34px; line-height: 1;">2</span><span style="font-size: 13px; font-weight: 700;">名</span></span><span style="font-size: 13px; line-height: 1.6; color: #574B47;">URL発行・公開まで完了</span></li></ul>
           <a href="https://ai.kitone.life/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 10px; font-size: 14px; font-weight: 700; color: #574B47;">10/19の詳細を見る →</a>
           <p style="margin: 16px 0 6px; font-size: 13px; color: #574B47;">AIでつくったLP</p>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -725,7 +725,7 @@ html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1d
 
   <!-- TOGETHER -->
   <section data-screen-label="Together" style="padding: clamp(72px, 10vw, 128px) 0; text-align: center;">
-    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">仲間がいるから続けられる</h2>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(30px, 4vw, 44px); line-height: 1.45; margin: 0;">独学じゃなく、<br data-sp-br="">学べる環境に身を置こう</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 0; margin: 48px auto 0; max-width: 1000px; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);">
       <p style="margin: 0; padding: 32px 24px; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 18px; line-height: 1.8;">「こんな働き方もアリなんだ」と選択肢が広がる</p>
       <p style="margin: 0; padding: 32px 24px; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 18px; line-height: 1.8; border-left: 1px solid var(--color-divider);">「わたしもそれ思ってた！」と自分の気持ちに気づける</p>
@@ -737,7 +737,7 @@ html[data-play="on"] article.card:hover { transform: translateY(-6px) rotate(-1d
   <!-- GIVE MIND -->
   <section data-screen-label="Give Mind" style="padding: clamp(72px, 10vw, 120px) 0; text-align: center;">
     <span style="display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Give Mind</span>
-    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(28px, 4vw, 42px); line-height: 1.5; margin: 0;">10月は、<br>GIVE月間にします🐰</h2>
+    <h2 style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(28px, 4vw, 42px); line-height: 1.5; margin: 0;">10月はGIVE月間🐰</h2>
     <div style="max-width: 560px; margin: 40px auto 0; padding: clamp(28px, 5vw, 44px) clamp(20px, 4vw, 40px); border-radius: 24px; background: #fff; border: 1px solid #E8C4C0; font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 17px; line-height: 2.1;">
       <p style="margin: 0;">わたしが大切にしているのは、<br><b style="font-family: 'Kanata', var(--font-heading), 'Shippori Mincho', serif; font-size: 20px; font-weight: 500; background: linear-gradient(transparent 60%, #E8C4C0 60%); padding: 0 4px;">「先に、与える」</b>こと。</p>
       <p style="margin: 20px 0 0;">知っていることは惜しみなくシェアして、<br>受け取った人が、<br>また誰かに手渡していく。<br>そんなGIVEの循環が、<br>自分らしい働き方に<br>つながると思っています🌿</p>
